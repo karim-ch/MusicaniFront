@@ -1,17 +1,13 @@
 import React from 'react';
-import { useQuery } from 'react-apollo';
-import { get } from 'lodash';
-import { SEARCH_BY_KEYWORD } from '../../graphql/queries';
+import Search from './Search';
+import VideoList from './VideoList';
 
-const Dashboard = () => {
-  const data = useQuery(SEARCH_BY_KEYWORD);
-  const movies = get(data, 'data.searchByKeyword');
-  console.log(movies);
-  return (
-    <div>
-      Dashboard
-    </div>
-  );
-};
+const Dashboard = () => (
+  <div>
+    Dashboard
+    <Search />
+    <VideoList />
+  </div>
+);
 
 export default Dashboard;
