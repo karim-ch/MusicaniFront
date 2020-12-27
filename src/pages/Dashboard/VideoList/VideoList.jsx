@@ -1,13 +1,14 @@
 import React from 'react';
+import { isEmpty } from 'lodash';
 import { useSelector } from 'react-redux';
+import getVideos from './getVideos';
 
 const VideoList = () => {
-  const videosList = useSelector(({ videos }) => videos);
-  console.log(videosList);
+  const videosList = useSelector(getVideos);
   return (
     <div>
       {
-        videosList.map(video => (
+        !isEmpty(videosList) && videosList.map(video => (
           <div>{video.title}</div>
         ))
       }
